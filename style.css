@@ -1,0 +1,319 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: 0;
+}
+
+body {
+  font-family: "Muli", sans-serif;
+  color: #333;
+}
+button {
+  outline: none;
+}
+path,
+i,
+svg {
+  pointer-events: none;
+}
+
+.colors {
+  min-height: 80vh;
+  display: flex;
+  color: wheat;
+}
+
+.color {
+  flex: 1;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  position: relative;
+  overflow: hidden;
+}
+
+.color h2 {
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.sliders {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  bottom: 0;
+  background: rgb(240, 240, 240);
+  padding: 1rem;
+  width: 75%;
+  border-top-right-radius: 1rem;
+  border-top-left-radius: 1rem;
+
+  pointer-events: none;
+  transform: translateY(100px);
+  transition: all 0.5s ease-in-out;
+  opacity: 0;
+}
+
+.sliders span {
+  color: #333;
+}
+
+.sliders.active {
+  opacity: 1;
+  transform: translateY(0px);
+  pointer-events: all;
+}
+
+.sliders button,
+.close-save,
+.close-libary {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0.5rem;
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  border: none;
+  background-color: rgb(87, 87, 87);
+  font-weight: bolder;
+  color: white;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+}
+
+.panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 20vh;
+}
+
+.panel button {
+  font-size: 1.2rem;
+  margin: 1rem;
+  padding: 1rem 2rem;
+  background-color: rgb(31, 31, 31);
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 1rem;
+}
+.panel button:hover {
+  color: rgb(31, 31, 31);
+  background-color: white;
+  transition: all 0.3s ease-in-out;
+}
+.panel p {
+  font-size: 1.2rem;
+}
+
+.libary-panel,
+.generate-panel,
+.save-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.adjust,
+.lock {
+  font-size: 2rem;
+  border: none;
+  background: none;
+  cursor: pointer;
+  margin: 2rem 0rem;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  margin: 1rem 0;
+  width: 100%;
+  position: relative;
+  border-radius: 1rem;
+  cursor: pointer;
+  background: #ffffff;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 500px;
+  background: rgba(255, 255, 255, 1);
+  border: 1px solid #333;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+
+.copy-container,
+.save-container,
+.libary-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  transition: all 0.5s ease-in-out;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.copy-popup,
+.save-popup,
+.libary-popup {
+  background: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 2rem;
+  padding: 3rem;
+
+  transition: transform 0.5s ease;
+  transform: translateY(-2rem);
+}
+
+.copy-popup h4,
+.save-popup h4,
+.libary-popup h4 {
+  font-size: 2rem;
+  padding: 2rem;
+}
+
+.copy-container.active,
+.libary-container.active,
+.save-container.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.copy-popup.active .copy-save.active .copy-libary.active {
+  transform: translateY(0rem);
+}
+
+.save-popup {
+  border-top-right-radius: 0;
+}
+
+.save-name {
+  font-size: 1.5rem;
+  padding: 1rem;
+}
+.submit-save {
+  margin: 2rem;
+  padding: 1rem 3rem;
+  background: rgb(82, 82, 82);
+  color: white;
+  border: none;
+  font-family: "Muli", sans-serif;
+  font-size: 1.25rem;
+  cursor: pointer;
+  border-radius: 1rem;
+}
+
+.libary-popup {
+  width: 50%;
+  padding: 1rem;
+  justify-content: flex-start;
+  max-height: 50vh;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.custom-palette {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  padding: 2rem;
+}
+
+.custom-palette h4 {
+  flex: 1;
+}
+
+.custom-palette button {
+  border: none;
+  height: 5rem;
+  min-width: 6rem;
+  color: white;
+  background-color: #333;
+  font-size: 1.25rem;
+
+  transition: all 0.25s ease-in-out;
+}
+
+.custom-palette button:hover {
+  background-color: rgb(190, 190, 190);
+  color: #333;
+}
+
+.small-preview {
+  display: flex;
+  flex: 1;
+}
+
+.small-preview div {
+  height: 5rem;
+  flex: 1;
+}
+
+.delete-palette {
+  background-color: indianred !important;
+  min-width: 4rem !important;
+}
+
+.delete-palette:hover {
+  color: indianred !important;
+  background-color: #333 !important;
+}
+button {
+  outline: none;
+}
+@media only screen and (max-width: 600px) {
+  .colors {
+    display: flex;
+    flex-direction: column;
+  }
+  .colors h2 {
+    font-size: 1.6rem;
+    margin-bottom: 0.8rem;
+  }
+  .libary-popup,
+  .libary-popup.active {
+    width: 85vw;
+  }
+
+  .sliders {
+    flex-direction: column;
+    padding: 0.25rem;
+    width: 95%;
+  }
+
+  .sliders span {
+    color: #333 !important;
+  }
+
+  .sliders.active {
+    height: 100px;
+    flex-direction: row;
+  }
+  .sliders input,
+  input[type="range"] {
+    width: 100% !important;
+  }
+  .adjust,
+  .lock {
+    margin: 0.8rem 0rem;
+  }
+}
