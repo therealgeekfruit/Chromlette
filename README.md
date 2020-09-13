@@ -4,7 +4,7 @@ An application where you can create custom palettes/generate random palettes and
 You can even customize a generated color and copy the hex code of the same to the clipboard with a single click.
 
 -You can preview the page here
-[Color Generator](https://https://therealgeekfruit.github.io/Color-Generator/)
+[Color Generator](https://therealgeekfruit.github.io/Color-Generator/)
 
 ---
 
